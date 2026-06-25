@@ -1,0 +1,202 @@
+[
+  {
+    "bundleId": "devnet-5LTtnNni-1782380568015",
+    "signature": "5LTtnNniZ9L21Xp9WdGXSYuy7hXkTE3PSLXmKbvPNpJj1D9FSf2797BMVGM6gPBuA7uux6rDbUDWhNHTxv4C9Suh",
+    "tipLamports": 500000,
+    "submittedAt": 1782380568016,
+    "submittedSlot": 471841500,
+    "latency": {
+      "submitToProcessed": 2027,
+      "processedToConfirmed": 0,
+      "confirmedToFinalized": 11737,
+      "totalMs": 13764
+    },
+    "status": "finalized",
+    "processedAt": 1782380570043,
+    "processedSlot": 471841505,
+    "confirmedAt": 1782380570043,
+    "confirmedSlot": 471841505,
+    "finalizedAt": 1782380581780,
+    "finalizedSlot": 471841505,
+    "agentTipReasoning": "All percentile tips (p25–p95) are uniformly 500000 lamports, and there have been zero recent failures — indicating that 500000 lamports is currently sufficient for reliable landing. No upward pressure from failures or tip dispersion, so maintaining the observed median (and consistent) tip level balances cost efficiency and reliability."
+  },
+  {
+    "bundleId": "devnet-2uQGcoM5-1782380587313",
+    "signature": "2uQGcoM5aGgs2enEL9msmBY4mRAsg2rDjiBPRqoA354XHA1mxUwgrEUQ59ajveEcq92PEm7nYUfTdYfw1t2pDf7c",
+    "tipLamports": 500000,
+    "submittedAt": 1782380587313,
+    "submittedSlot": 471841550,
+    "latency": {
+      "submitToProcessed": 2081,
+      "processedToConfirmed": 0,
+      "confirmedToFinalized": 11531,
+      "totalMs": 13612
+    },
+    "status": "finalized",
+    "processedAt": 1782380589394,
+    "processedSlot": 471841556,
+    "confirmedAt": 1782380589394,
+    "confirmedSlot": 471841556,
+    "finalizedAt": 1782380600925,
+    "finalizedSlot": 471841556,
+    "agentTipReasoning": "All percentile tips (p25–p95) are uniformly 500000 lamports, and there have been zero recent failures — indicating that 500000 lamports is currently sufficient for reliable landing. No upward pressure from congestion or failure history; conservative, cost-efficient choice aligns with observed stability."
+  },
+  {
+    "bundleId": "5j7z6Xy4-1782380805258",
+    "signature": "5j7z6Xy45fPgv5CU8dFqkPzrjrrh4mKfsZ999Sd56MnimCvaN4pDqfeuhqXKfYyTfE71w2uVTiPyzDoGMadwpyWb",
+    "tipLamports": 750000,
+    "submittedAt": 1782380805305,
+    "submittedSlot": 471842123,
+    "failedAt": 1782380805305,
+    "failureType": "BUNDLE_REJECTED",
+    "failureDetail": "BUNDLE_REJECTED: Simulation failed. \nMessage: Transaction simulation failed: Blockhash not found. \nLogs: \n[]. \nCatch the `SendTransactionError` and call `getLogs()` on it for full details.",
+    "latency": {
+      "totalMs": 0
+    },
+    "status": "failed",
+    "agentTipReasoning": "All percentile tips (p25–p95) are identical at 500000 lamports, suggesting a tightly clustered, possibly stagnant tip market. However, the two most recent failures (both at tip=500000) indicate that 500000 is currently insufficient for reliable inclusion — likely due to increased competition or validator policy shifts. Since failures occurred in consecutive recent slots (471841758 and 471841938), and no successful submissions at 500000 are observed in the recent history provided, stepping up is necessary. A 50% increase to 750000 balances cost-efficiency and improved landing probability — it exceeds all current percentiles meaningfully while avoiding excessive overpayment (e.g., jumping to 1M+). This aligns with typical Solana tip escalation patterns when p50 fails repeatedly.",
+    "agentRetryReasoning": "The bundle failed with 'Blockhash not found', which means the blockhash used in the transaction has expired or is no longer valid for the current slot. Since the submitted slot (471841938) equals the current slot (471841938), the blockhash likely expired *within* that slot — common on Solana where blockhashes are only valid for ~2-3 slots but often expire faster under high load or if reused across attempts. The tip (500000 lamports) is already at p50 and p75, so insufficient tip is unlikely to be the cause; the core issue is stale blockhash. Therefore, we must refresh the blockhash. Retrying with the same blockhash will fail again. No need to increase tip yet (attempt 2, tip already at market median), and no need to wait slots since current slot hasn't advanced — we can fetch a fresh blockhash immediately. Abort is unwarranted as this is a transient, fixable error."
+  },
+  {
+    "bundleId": "devnet-2YXiATXc-1782380810459",
+    "signature": "2YXiATXcHuBUdP2v9oo58pbT3gMU5EVqxLQjNTHbig3iE6cPnaKuo1Uzho8vizfK7tJmf1pxY2pWPPCmUeJzL29o",
+    "tipLamports": 500000,
+    "submittedAt": 1782380810459,
+    "submittedSlot": 471842137,
+    "latency": {
+      "submitToProcessed": 2018,
+      "processedToConfirmed": 0,
+      "confirmedToFinalized": 11503,
+      "totalMs": 13521
+    },
+    "status": "finalized",
+    "processedAt": 1782380812477,
+    "processedSlot": 471842142,
+    "confirmedAt": 1782380812477,
+    "confirmedSlot": 471842142,
+    "finalizedAt": 1782380823980,
+    "finalizedSlot": 471842142,
+    "agentTipReasoning": "All percentile tips (p25 through p95) are uniformly at 500000 lamports, and there have been zero recent failures — indicating that 500000 lamports is currently sufficient for reliable bundle landing. No upward pressure from congestion or failure signals exists, so maintaining the current tip is optimal for balancing cost efficiency and landing probability."
+  },
+  {
+    "bundleId": "devnet-2gCrdG3W-1782380829882",
+    "signature": "2gCrdG3WyinDK99cZqRmMUkHJqeYnFoePQZqV5cZpfXGsjy8RA5bTj4ngtSPZPYSTjLdJdAiQjbzFpPWcW1QjNrz",
+    "tipLamports": 500000,
+    "submittedAt": 1782380829882,
+    "submittedSlot": 471842188,
+    "latency": {
+      "submitToProcessed": 2016,
+      "processedToConfirmed": 0,
+      "confirmedToFinalized": 11368,
+      "totalMs": 13384
+    },
+    "status": "finalized",
+    "processedAt": 1782380831898,
+    "processedSlot": 471842193,
+    "confirmedAt": 1782380831898,
+    "confirmedSlot": 471842193,
+    "finalizedAt": 1782380843266,
+    "finalizedSlot": 471842193,
+    "agentTipReasoning": "All percentile tips (p25 through p95) are uniformly at 500000 lamports, and there have been zero recent failures — indicating that 500000 lamports is currently sufficient for reliable bundle landing. No upward pressure from failures or tip dispersion, so no need to overpay; conserving cost while maintaining high landing probability."
+  },
+  {
+    "bundleId": "devnet-Z2htao6c-1782380849172",
+    "signature": "Z2htao6cwEstvNMTTudNYAjjYP5GChFV1VhoB4qUpLw5QHQJsD8GgdzHbh2f5mXnNLqqNR9XtZBR33GUBimdBov",
+    "tipLamports": 500000,
+    "submittedAt": 1782380849172,
+    "submittedSlot": 471842239,
+    "latency": {
+      "submitToProcessed": 2023,
+      "processedToConfirmed": 84,
+      "confirmedToFinalized": 11761,
+      "totalMs": 13868
+    },
+    "status": "finalized",
+    "processedAt": 1782380851195,
+    "processedSlot": 471842245,
+    "confirmedAt": 1782380851279,
+    "confirmedSlot": 471842245,
+    "finalizedAt": 1782380863040,
+    "finalizedSlot": 471842245,
+    "agentTipReasoning": "All percentile tips (p25–p95) are uniformly at 500000 lamports, and there have been zero recent failures — indicating that 500000 lamports is currently sufficient for reliable bundle landing. No upward pressure exists; stepping up would increase cost without improving probability. Staying at p50 (which matches all percentiles here) is both conservative and empirically validated."
+  },
+  {
+    "bundleId": "2JeXUwkn-1782381066277",
+    "signature": "2JeXUwkn3bFhjkuqdT8TxUWrZYvphQVMZZH8EbjqU37EKwesmNEd8ANhjxYPiVui5sHLGVCaVxVpk1BTJvgN1cWZ",
+    "tipLamports": 750000,
+    "submittedAt": 1782381066326,
+    "submittedSlot": 471842815,
+    "failedAt": 1782381066326,
+    "failureType": "BUNDLE_REJECTED",
+    "failureDetail": "BUNDLE_REJECTED: Simulation failed. \nMessage: Transaction simulation failed: Blockhash not found. \nLogs: \n[]. \nCatch the `SendTransactionError` and call `getLogs()` on it for full details.",
+    "latency": {
+      "totalMs": 0
+    },
+    "status": "failed",
+    "agentTipReasoning": "All percentile tips (p25–p95) are identical at 500000 lamports, suggesting a tightly clustered, possibly stagnant tip market. However, the two most recent failures were both at 500000 lamports and classified as BUNDLE_REJECTED — strongly indicating that 500000 is insufficient to land bundles reliably right now, likely due to increased competition or validator policy shifts. Since failures occurred in consecutive recent slots (471842447 and 471842629), the 500000 floor has demonstrably broken. To improve landing probability without overpaying, we step up by 50% — a moderate but meaningful increase above the observed cluster — targeting a tip that clears both current percentiles and recent rejection thresholds. This balances cost efficiency against urgency to land.",
+    "agentRetryReasoning": "The bundle failed with 'Blockhash not found', which means the blockhash used in the transaction has expired or is no longer valid for the current slot. Since the submitted slot (471842629) equals the current slot (471842629), the blockhash likely expired due to timing — blockhashes are only valid for ~2-3 slots, and even same-slot submissions can fail if the blockhash was fetched too early or the transaction wasn't processed in time. The tip stats (p50 = p75 = 500000) show no evidence of network congestion requiring a higher tip; the issue is not fee-related but freshness-related. Therefore, the correct action is to refresh the blockhash (and likely also re-sign the transaction with a new recent blockhash). Increasing tip is unnecessary and waiting slots is not required since we're already in the current slot and blockhashes for future slots aren't usable — we need a *new valid* blockhash from the latest block."
+  },
+  {
+    "bundleId": "devnet-5ES7KJQa-1782381071477",
+    "signature": "5ES7KJQaRY4Nyy3ZgHrdUWc7UZ5uVg7tpsrxi2V6qGAXwjBnoFNGyVHS3Z5T5oCH48zqDoudcL1UB86xGgTHRnZm",
+    "tipLamports": 500000,
+    "submittedAt": 1782381071477,
+    "submittedSlot": 471842829,
+    "latency": {
+      "submitToProcessed": 2016,
+      "processedToConfirmed": 1,
+      "confirmedToFinalized": 11242,
+      "totalMs": 13259
+    },
+    "status": "finalized",
+    "processedAt": 1782381073493,
+    "processedSlot": 471842834,
+    "confirmedAt": 1782381073494,
+    "confirmedSlot": 471842834,
+    "finalizedAt": 1782381084736,
+    "finalizedSlot": 471842834,
+    "agentTipReasoning": "All percentile tips (p25–p95) are uniformly 500,000 lamports, and there have been zero recent failures — indicating that 500,000 lamports is currently sufficient for reliable landing. No upward pressure from congestion or failure signals; conservative, cost-efficient choice aligns with observed stability."
+  },
+  {
+    "bundleId": "devnet-4Y9KcCxX-1782381090453",
+    "signature": "4Y9KcCxXKYZZ2WkLMKbF9wmDUWMuY2pppsLZyyFzxVyhATAcj31rQXGGjhBnc6xxBYjThCCuCejHqcsyL6p6s9f7",
+    "tipLamports": 500000,
+    "submittedAt": 1782381090453,
+    "submittedSlot": 471842880,
+    "latency": {
+      "submitToProcessed": 2026,
+      "processedToConfirmed": 0,
+      "confirmedToFinalized": 11639,
+      "totalMs": 13665
+    },
+    "status": "finalized",
+    "processedAt": 1782381092479,
+    "processedSlot": 471842886,
+    "confirmedAt": 1782381092479,
+    "confirmedSlot": 471842886,
+    "finalizedAt": 1782381104118,
+    "finalizedSlot": 471842886,
+    "agentTipReasoning": "All percentile tips (p25 through p95) are uniformly 500000 lamports, and there have been zero recent failures — indicating that 500000 lamports is currently sufficient for reliable bundle landing. No upward pressure from failures or tip dispersion, so maintaining the p50 (which matches all percentiles here) is both cost-effective and reliable."
+  },
+  {
+    "bundleId": "devnet-651tEpLK-1782381109800",
+    "signature": "651tEpLKpro2PVdE1QPeYw1y3bsh4gSTa77orkfxhj8JXwbBQa58XTH7oXy2x1EGZFw7tNSnWS1VjqfRjULQKGJs",
+    "tipLamports": 500000,
+    "submittedAt": 1782381109800,
+    "submittedSlot": 471842932,
+    "latency": {
+      "submitToProcessed": 2015,
+      "processedToConfirmed": 0,
+      "confirmedToFinalized": 11590,
+      "totalMs": 13605
+    },
+    "status": "finalized",
+    "processedAt": 1782381111815,
+    "processedSlot": 471842937,
+    "confirmedAt": 1782381111815,
+    "confirmedSlot": 471842937,
+    "finalizedAt": 1782381123405,
+    "finalizedSlot": 471842937,
+    "agentTipReasoning": "All percentile tips (p25–p95) are uniformly 500000 lamports, indicating tight consensus on minimum effective tip. Recent failures = 0, confirming that 500000 lamports is currently sufficient for reliable landing. No upward pressure to increase tip; conservative, cost-efficient choice aligns with observed stability."
+  }
+]

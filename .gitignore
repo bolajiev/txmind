@@ -1,0 +1,25 @@
+# Environment — contains private keys and API keys, NEVER commit
+.env
+.env.local
+.env.*.local
+
+# Wallet keypair — contains private key bytes, NEVER commit
+keypair.json
+*.keypair.json
+
+# Build output
+dist/
+node_modules/
+
+# Logs
+*.log
+npm-debug.log*
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Editor
+.vscode/
+.idea/
+*.swp
