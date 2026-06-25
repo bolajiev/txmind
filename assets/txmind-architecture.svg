@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="1200" height="660" viewBox="0 0 1200 660" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <marker id="ab" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><polygon points="0 0,8 3,0 6" fill="#3b82f6"/></marker>
+    <marker id="ag" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><polygon points="0 0,8 3,0 6" fill="#22c55e"/></marker>
+    <marker id="ap" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><polygon points="0 0,8 3,0 6" fill="#a855f7"/></marker>
+    <marker id="ao" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><polygon points="0 0,8 3,0 6" fill="#f97316"/></marker>
+    <marker id="ar" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><polygon points="0 0,8 3,0 6" fill="#ef4444"/></marker>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="660" fill="#0d1117"/>
+
+  <!-- Header -->
+  <text x="600" y="44" text-anchor="middle" font-size="30" font-weight="bold" fill="#f0f6fc" font-family="'SF Mono',monospace" letter-spacing="4">TxMind</text>
+  <text x="600" y="68" text-anchor="middle" font-size="12" fill="#7d8590" font-family="sans-serif" letter-spacing="3">SOLANA SMART TRANSACTION STACK</text>
+  <line x1="80" y1="82" x2="1120" y2="82" stroke="#21262d" stroke-width="1"/>
+
+  <!-- ── STREAM LAYER ── -->
+  <text x="88" y="108" font-size="9" fill="#3b82f6" font-weight="bold" font-family="sans-serif" letter-spacing="2">STREAM LAYER</text>
+
+  <!-- Helius LaserStream -->
+  <rect x="88" y="116" width="210" height="80" rx="8" fill="#0b1929" stroke="#3b82f6" stroke-width="1.5"/>
+  <text x="193" y="139" text-anchor="middle" font-size="11" font-weight="bold" fill="#93c5fd" font-family="sans-serif">Helius LaserStream</text>
+  <text x="193" y="157" text-anchor="middle" font-size="10" fill="#60a5fa" font-family="sans-serif">Yellowstone gRPC</text>
+  <text x="193" y="174" text-anchor="middle" font-size="9" fill="#3b82f6" font-family="sans-serif">@triton-one/yellowstone-grpc</text>
+  <text x="193" y="189" text-anchor="middle" font-size="9" fill="#1d4ed8" font-family="sans-serif">slot · tx filter by wallet</text>
+
+  <!-- Arrow → Stream Watcher -->
+  <path d="M298 156 L358 156" stroke="#3b82f6" stroke-width="2" fill="none" marker-end="url(#ab)"/>
+
+  <!-- Stream Watcher -->
+  <rect x="358" y="116" width="210" height="80" rx="8" fill="#0b1929" stroke="#3b82f6" stroke-width="1.5"/>
+  <text x="463" y="139" text-anchor="middle" font-size="11" font-weight="bold" fill="#93c5fd" font-family="sans-serif">Stream Watcher</text>
+  <text x="463" y="157" text-anchor="middle" font-size="10" fill="#60a5fa" font-family="sans-serif">slot status 0 / 1 / 2</text>
+  <text x="463" y="174" text-anchor="middle" font-size="9" fill="#3b82f6" font-family="sans-serif">leader window detection</text>
+  <text x="463" y="189" text-anchor="middle" font-size="9" fill="#1d4ed8" font-family="sans-serif">1s→2s→4s→30s backoff</text>
+
+  <!-- Arrow → Lifecycle Tracker (stream) -->
+  <path d="M568 156 L628 156" stroke="#3b82f6" stroke-width="2" fill="none" marker-end="url(#ab)"/>
+  <text x="598" y="148" text-anchor="middle" font-size="8" fill="#3b82f6" font-family="sans-serif">slot 0/1/2</text>
+
+  <!-- Lifecycle Tracker -->
+  <rect x="628" y="116" width="210" height="80" rx="8" fill="#0a1f0e" stroke="#22c55e" stroke-width="1.5"/>
+  <text x="733" y="137" text-anchor="middle" font-size="11" font-weight="bold" fill="#86efac" font-family="sans-serif">Lifecycle Tracker</text>
+  <text x="733" y="154" text-anchor="middle" font-size="9" fill="#4ade80" font-family="sans-serif">RPC poll → processed</text>
+  <text x="733" y="169" text-anchor="middle" font-size="9" fill="#4ade80" font-family="sans-serif">stream → confirmed</text>
+  <text x="733" y="184" text-anchor="middle" font-size="9" fill="#4ade80" font-family="sans-serif">stream → finalized</text>
+  <text x="733" y="189" text-anchor="middle" font-size="8" fill="#166534" font-family="sans-serif">90s timeout → BLOCKHASH_EXPIRED</text>
+
+  <!-- Arrow → log -->
+  <path d="M838 156 L898 156" stroke="#22c55e" stroke-width="2" fill="none" marker-end="url(#ag)"/>
+
+  <!-- lifecycle-log.json -->
+  <rect x="898" y="116" width="222" height="80" rx="8" fill="#0a1f0e" stroke="#22c55e" stroke-width="1.5"/>
+  <text x="1009" y="139" text-anchor="middle" font-size="11" font-weight="bold" fill="#86efac" font-family="sans-serif">lifecycle-log.json</text>
+  <text x="1009" y="157" text-anchor="middle" font-size="10" fill="#4ade80" font-family="sans-serif">10 entries · 2 failures</text>
+  <text x="1009" y="174" text-anchor="middle" font-size="9" fill="#4ade80" font-family="sans-serif">slot · timestamp · latency</text>
+  <text x="1009" y="189" text-anchor="middle" font-size="9" fill="#4ade80" font-family="sans-serif">agent reasoning per entry</text>
+
+  <!-- failure → AI Agent feedback (goes down then left) -->
+  <path d="M733 196 L733 232 L463 232 L463 292" stroke="#ef4444" stroke-width="1.5" stroke-dasharray="5,3" fill="none" marker-end="url(#ar)"/>
+  <text x="590" y="226" text-anchor="middle" font-size="9" fill="#ef4444" font-family="sans-serif">on failure → decideRetry()</text>
+
+  <!-- ── AI LAYER ── -->
+  <text x="88" y="276" font-size="9" fill="#a855f7" font-weight="bold" font-family="sans-serif" letter-spacing="2">AI LAYER</text>
+
+  <!-- Tip Calculator -->
+  <rect x="88" y="284" width="190" height="85" rx="8" fill="#160b29" stroke="#a855f7" stroke-width="1.5"/>
+  <text x="183" y="306" text-anchor="middle" font-size="11" font-weight="bold" fill="#d8b4fe" font-family="sans-serif">Tip Calculator</text>
+  <text x="183" y="324" text-anchor="middle" font-size="9" fill="#c084fc" font-family="sans-serif">8 Jito tip accounts</text>
+  <text x="183" y="340" text-anchor="middle" font-size="9" fill="#c084fc" font-family="sans-serif">p25 · p50 · p75 · p95</text>
+  <text x="183" y="356" text-anchor="middle" font-size="9" fill="#7e22ce" font-family="sans-serif">live lamport balances · 5s cache</text>
+  <text x="183" y="362" text-anchor="middle" font-size="8" fill="#581c87" font-family="sans-serif">getMultipleAccountsInfo confirmed</text>
+
+  <!-- Arrow → AI Agent -->
+  <path d="M278 326 L358 326" stroke="#a855f7" stroke-width="2" fill="none" marker-end="url(#ap)"/>
+  <text x="318" y="319" text-anchor="middle" font-size="8" fill="#a855f7" font-family="sans-serif">TipStats</text>
+
+  <!-- AI Agent Qwen -->
+  <rect x="358" y="275" width="210" height="100" rx="8" fill="#160b29" stroke="#a855f7" stroke-width="2"/>
+  <text x="463" y="299" text-anchor="middle" font-size="12" font-weight="bold" fill="#e9d5ff" font-family="sans-serif">AI Agent · Qwen</text>
+  <text x="463" y="317" text-anchor="middle" font-size="9" fill="#c084fc" font-family="sans-serif">OpenAI-compatible DashScope API</text>
+  <text x="463" y="334" text-anchor="middle" font-size="9" fill="#a855f7" font-family="sans-serif">decideTip() — tip sizing</text>
+  <text x="463" y="350" text-anchor="middle" font-size="9" fill="#a855f7" font-family="sans-serif">decideRetry() — failure strategy</text>
+  <text x="463" y="366" text-anchor="middle" font-size="9" fill="#7c3aed" font-family="sans-serif">refresh_blockhash · increase_tip</text>
+  <text x="463" y="369" text-anchor="middle" font-size="8" fill="#4c1d95" font-family="sans-serif">wait_slots · abort</text>
+
+  <!-- Arrow: AI Agent → Bundle Builder -->
+  <path d="M568 326 L628 326" stroke="#a855f7" stroke-width="2" fill="none" marker-end="url(#ap)"/>
+  <text x="598" y="319" text-anchor="middle" font-size="8" fill="#a855f7" font-family="sans-serif">tipLamports</text>
+
+  <!-- ── BUNDLE LAYER ── -->
+  <text x="636" y="276" font-size="9" fill="#f97316" font-weight="bold" font-family="sans-serif" letter-spacing="2">BUNDLE LAYER</text>
+
+  <!-- Bundle Builder -->
+  <rect x="628" y="284" width="210" height="85" rx="8" fill="#1c0d00" stroke="#f97316" stroke-width="1.5"/>
+  <text x="733" y="306" text-anchor="middle" font-size="11" font-weight="bold" fill="#fed7aa" font-family="sans-serif">Bundle Builder</text>
+  <text x="733" y="324" text-anchor="middle" font-size="9" fill="#fb923c" font-family="sans-serif">main tx + tip transfer tx</text>
+  <text x="733" y="340" text-anchor="middle" font-size="9" fill="#fb923c" font-family="sans-serif">VersionedTransaction v0</text>
+  <text x="733" y="356" text-anchor="middle" font-size="9" fill="#f97316" font-family="sans-serif">SystemProgram.transfer to tip acct</text>
+  <text x="733" y="362" text-anchor="middle" font-size="8" fill="#9a3412" font-family="sans-serif">rotate across 8 Jito tip accounts</text>
+
+  <!-- Arrow → Bundle Submitter -->
+  <path d="M838 326 L898 326" stroke="#f97316" stroke-width="2" fill="none" marker-end="url(#ao)"/>
+  <text x="868" y="319" text-anchor="middle" font-size="8" fill="#f97316" font-family="sans-serif">base58 txs</text>
+
+  <!-- Bundle Submitter -->
+  <rect x="898" y="284" width="222" height="85" rx="8" fill="#1c0d00" stroke="#f97316" stroke-width="1.5"/>
+  <text x="1009" y="306" text-anchor="middle" font-size="11" font-weight="bold" fill="#fed7aa" font-family="sans-serif">Bundle Submitter</text>
+  <text x="1009" y="324" text-anchor="middle" font-size="9" fill="#fb923c" font-family="sans-serif">mainnet: Jito HTTP JSON-RPC</text>
+  <text x="1009" y="340" text-anchor="middle" font-size="9" fill="#fb923c" font-family="sans-serif">POST /api/v1/bundles</text>
+  <text x="1009" y="356" text-anchor="middle" font-size="9" fill="#f97316" font-family="sans-serif">devnet: sendRawTransaction</text>
+  <text x="1009" y="362" text-anchor="middle" font-size="8" fill="#9a3412" font-family="sans-serif">returns bundleId → Lifecycle Tracker</text>
+
+  <!-- Arrow: Submitter → Lifecycle Tracker (up and left) -->
+  <path d="M1009 284 L1009 248 L733 248 L733 196" stroke="#f97316" stroke-width="1.5" stroke-dasharray="5,3" fill="none" marker-end="url(#ao)"/>
+
+  <!-- ── STATS ── -->
+  <line x1="80" y1="408" x2="1120" y2="408" stroke="#21262d" stroke-width="1"/>
+
+  <rect x="88" y="420" width="245" height="90" rx="8" fill="#0d1117" stroke="#21262d" stroke-width="1"/>
+  <text x="210" y="450" text-anchor="middle" font-size="32" font-weight="bold" fill="#22c55e" font-family="sans-serif">8</text>
+  <text x="210" y="472" text-anchor="middle" font-size="11" fill="#7d8590" font-family="sans-serif">bundles finalized</text>
+  <text x="210" y="490" text-anchor="middle" font-size="10" fill="#4ade80" font-family="sans-serif">avg 2.03s to processed</text>
+  <text x="210" y="504" text-anchor="middle" font-size="10" fill="#4ade80" font-family="sans-serif">11.2–11.8s to finalized</text>
+
+  <rect x="349" y="420" width="245" height="90" rx="8" fill="#0d1117" stroke="#21262d" stroke-width="1"/>
+  <text x="471" y="450" text-anchor="middle" font-size="32" font-weight="bold" fill="#ef4444" font-family="sans-serif">2</text>
+  <text x="471" y="472" text-anchor="middle" font-size="11" fill="#7d8590" font-family="sans-serif">failures injected</text>
+  <text x="471" y="490" text-anchor="middle" font-size="10" fill="#f87171" font-family="sans-serif">BUNDLE_REJECTED</text>
+  <text x="471" y="504" text-anchor="middle" font-size="10" fill="#f87171" font-family="sans-serif">agent retry → refresh blockhash</text>
+
+  <rect x="610" y="420" width="245" height="90" rx="8" fill="#0d1117" stroke="#21262d" stroke-width="1"/>
+  <text x="732" y="450" text-anchor="middle" font-size="32" font-weight="bold" fill="#a855f7" font-family="sans-serif">10</text>
+  <text x="732" y="472" text-anchor="middle" font-size="11" fill="#7d8590" font-family="sans-serif">AI decisions made</text>
+  <text x="732" y="490" text-anchor="middle" font-size="10" fill="#c084fc" font-family="sans-serif">decideTip + decideRetry</text>
+  <text x="732" y="504" text-anchor="middle" font-size="10" fill="#c084fc" font-family="sans-serif">chain-of-thought per entry</text>
+
+  <rect x="871" y="420" width="249" height="90" rx="8" fill="#0d1117" stroke="#21262d" stroke-width="1"/>
+  <text x="995" y="450" text-anchor="middle" font-size="32" font-weight="bold" fill="#3b82f6" font-family="sans-serif">0</text>
+  <text x="995" y="472" text-anchor="middle" font-size="11" fill="#7d8590" font-family="sans-serif">confirmTransaction calls</text>
+  <text x="995" y="490" text-anchor="middle" font-size="10" fill="#60a5fa" font-family="sans-serif">stream-only confirmation</text>
+  <text x="995" y="504" text-anchor="middle" font-size="10" fill="#60a5fa" font-family="sans-serif">&lt;100ms push vs 400-800ms poll</text>
+
+  <!-- Footer -->
+  <line x1="80" y1="527" x2="1120" y2="527" stroke="#21262d" stroke-width="1"/>
+  <text x="600" y="551" text-anchor="middle" font-size="11" fill="#484f58" font-family="monospace">github.com/bolajiev/txmind</text>
+  <text x="600" y="570" text-anchor="middle" font-size="10" fill="#30363d" font-family="sans-serif">Yellowstone gRPC · Jito Bundles · Qwen AI Agent · Solana devnet · slots 471841505–471842937</text>
+</svg>
