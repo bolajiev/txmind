@@ -35,6 +35,7 @@ export function createStreamWatcher(
   let currentSlot = 0;
   let upcomingLeaderCache: SlotUpdate | null = null;
   let running = true;
+  let reconnectDelay = 1000; // exponential backoff: 1s → 2s → 4s → max 30s
 
   // sig → registered callbacks
   const activeSubs = new Map<string, SignatureCallback[]>();
@@ -212,18 +213,30 @@ export function createStreamWatcher(
       });
 
       stream.on("error", (err: Error) => {
-        process.stderr.write(`Stream error: ${err.message}\n`);
-        if (running) setTimeout(connectStream, 1000);
+        process.stderr.write(`Stream error: ${err.message} — reconnecting in ${reconnectDelay}ms\n`);
+        if (running) {
+          setTimeout(connectStream, reconnectDelay);
+          reconnectDelay = Math.min(reconnectDelay * 2, 30_000);
+        }
       });
 
       stream.on("end", () => {
-        if (running) setTimeout(connectStream, 2000);
+        process.stderr.write(`Stream ended — reconnecting in ${reconnectDelay}ms\n`);
+        if (running) {
+          setTimeout(connectStream, reconnectDelay);
+          reconnectDelay = Math.min(reconnectDelay * 2, 30_000);
+        }
       });
 
+      // Reset backoff on successful connection
+      reconnectDelay = 1000;
       refreshLeaderSchedule();
     } catch (err) {
-      process.stderr.write(`Connect failed: ${err}\n`);
-      if (running) setTimeout(connectStream, 2000);
+      process.stderr.write(`Connect failed: ${err} — reconnecting in ${reconnectDelay}ms\n`);
+      if (running) {
+        setTimeout(connectStream, reconnectDelay);
+        reconnectDelay = Math.min(reconnectDelay * 2, 30_000);
+      }
     }
   }
 

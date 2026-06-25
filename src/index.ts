@@ -143,9 +143,15 @@ async function main() {
   for (let i = 0; i < SUBMISSION_COUNT; i++) {
     const shouldInjectFailure = i === 2 || i === 6;
 
+    const upcoming = watcher.getUpcomingLeader();
+    const leaderInfo = upcoming
+      ? `next leader in ${upcoming.slotsUntilLeader} slot(s): ${upcoming.leader.slice(0, 8)}...`
+      : "leader window: unknown";
+
     console.log(
       `\n[${i + 1}/${SUBMISSION_COUNT}] Submitting bundle${shouldInjectFailure ? " (failure injection — blockhash will expire)" : ""}...`
     );
+    console.log(`  ${leaderInfo}`);
 
     try {
       // BuildAndSubmitFn receives tipLamports from the agent via executeWithRetry
